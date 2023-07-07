@@ -22,6 +22,6 @@ export default defineConfig({
     setupNodeEvents,
     specPattern: "./cypress/e2e/**/*.{feature,features}",
     supportFile: "./cypress/support/e2e.ts",
-	baseUrl: "https://www.tutorialspoint.com/market"
+	  baseUrl: "https://www.tutorialspoint.com"
   },
 });

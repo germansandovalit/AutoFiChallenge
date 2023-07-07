@@ -36,6 +36,23 @@
 //   }
 // }
 
+declare namespace Cypress {
+    interface Node extends HTMLElement {
+      href: string
+    }
+    interface Chainable<Subject = any> {
+      visitAndSkipRequests(path: string): Chainable<any>
+    }
+  }
+
+Cypress.Commands.add('visitAndSkipRequests', (path: string) => {
+    cy.intercept('**', {statusCode: 226})
+    cy.intercept(`${Cypress.config("baseUrl")}/**`, (req) => {
+      req.continue()
+    })
+    cy.visit(path)
+})
+
 Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })

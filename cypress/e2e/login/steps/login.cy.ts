@@ -2,7 +2,7 @@ import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 const LOGIN_PAGE_URL = "login.asp";
 
-Given("I visit tutorialpoint website", () => {
+Given("I visit tutorialpoint login page", () => {
   cy.visit(LOGIN_PAGE_URL);
 });
 
