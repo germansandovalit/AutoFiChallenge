@@ -1,0 +1,25 @@
+{
+  "name": "autofichallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.5",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
+    "@types/node": "^20.4.0",
+    "cypress": "^12.17.0",
+    "typescript": "^5.1.6"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/e2e/**/*.ts"
+    ]
+  }
+}
