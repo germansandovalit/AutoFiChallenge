@@ -1,0 +1,9 @@
+{
+    "statusCode": 200,
+    "body": {
+      "status": 200,
+      "message": "OTP sent to the given Mobile Number. Please use OTP to verify Mobile Number"
+    },
+    "delay": 2000
+  }
+  

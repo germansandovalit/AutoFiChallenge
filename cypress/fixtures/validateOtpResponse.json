@@ -1,0 +1,9 @@
+{
+    "statusCode": 200,
+    "body": {
+      "flag": 0,
+      "message": "OTP validation is successful"
+    },
+    "delay": 2000
+  }
+  
