@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+/// <reference types='cypress' />
 // ***********************************************
 // This example commands.ts shows you how to
 // create various custom commands and overwrite
@@ -52,7 +52,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 
 Cypress.Commands.add('visitAndSkipRequests', (path: string) => {
   cy.intercept('**', { statusCode: 226 })
-  cy.intercept(`${Cypress.config("baseUrl")}/**`, (req) => {
+  cy.intercept(`${Cypress.config('baseUrl')}/**`, (req) => {
     req.continue()
   })
   cy.visit(path)
