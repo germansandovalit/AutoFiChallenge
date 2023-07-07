@@ -18,6 +18,7 @@ async function setupNodeEvents(
 }
 
 export default defineConfig({
+  defaultCommandTimeout: 10000,
   e2e: {
     setupNodeEvents,
     specPattern: "./cypress/e2e/**/*.{feature,features}",

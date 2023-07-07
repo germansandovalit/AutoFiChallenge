@@ -42,8 +42,13 @@ declare namespace Cypress {
     }
     interface Chainable<Subject = any> {
       visitAndSkipRequests(path: string): Chainable<any>
+      saveDataAsJson(data: any): Chainable<any>
     }
-  }
+}
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+  return false
+})
 
 Cypress.Commands.add('visitAndSkipRequests', (path: string) => {
     cy.intercept('**', {statusCode: 226})
@@ -53,6 +58,19 @@ Cypress.Commands.add('visitAndSkipRequests', (path: string) => {
     cy.visit(path)
 })
 
-Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
+Cypress.Commands.add('saveDataAsJson', (data: any) => {
+    const filename = createFilePath()
+    const fullPath = `cypress/downloads/${filename}`
+    const jsonData = JSON.stringify(data)
+    cy.writeFile(fullPath, jsonData)
 })
+
+
+const createFilePath = () => {
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  const seconds = now.getSeconds().toString().padStart(2, '0');
+
+  return `data_${hours}${minutes}${seconds}.json`;
+}

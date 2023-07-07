@@ -54,3 +54,7 @@ Then("I see a list of all text inputs fields on the page", () => {
       })
 });
 
+Then("I see a file saved with all the extracted data", () => {
+    cy.saveDataAsJson(output)
+})
+
