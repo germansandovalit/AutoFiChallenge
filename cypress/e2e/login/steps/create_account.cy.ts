@@ -10,7 +10,7 @@ When("I create an account", () => {
   const name = Cypress.env("NAME")
   const email = Cypress.env("EMAIL");
   const password = Cypress.env("PASSWORD");
-  const phone = (Math.floor(Math.random() * 9000000000) + 1000000000).toString()
+  const phone = Cypress.env("PHONE")
   const otp = Cypress.env("OTP")
   const baseUrl = Cypress.config("baseUrl")
 
