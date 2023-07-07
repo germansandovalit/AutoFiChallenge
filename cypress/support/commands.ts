@@ -37,13 +37,13 @@
 // }
 
 declare namespace Cypress {
-    interface Node extends HTMLElement {
-      href: string
-    }
-    interface Chainable<Subject = any> {
-      visitAndSkipRequests(path: string): Chainable<any>
-      saveDataAsJson(data: any): Chainable<any>
-    }
+  interface Node extends HTMLElement {
+    href: string
+  }
+  interface Chainable<Subject = any> {
+    visitAndSkipRequests(path: string): Chainable<any>
+    saveDataAsJson(data: any): Chainable<any>
+  }
 }
 
 Cypress.on('uncaught:exception', (err, runnable) => {
@@ -51,18 +51,18 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 Cypress.Commands.add('visitAndSkipRequests', (path: string) => {
-    cy.intercept('**', {statusCode: 226})
-    cy.intercept(`${Cypress.config("baseUrl")}/**`, (req) => {
-      req.continue()
-    })
-    cy.visit(path)
+  cy.intercept('**', { statusCode: 226 })
+  cy.intercept(`${Cypress.config("baseUrl")}/**`, (req) => {
+    req.continue()
+  })
+  cy.visit(path)
 })
 
 Cypress.Commands.add('saveDataAsJson', (data: any) => {
-    const filename = createFilePath()
-    const fullPath = `cypress/downloads/${filename}`
-    const jsonData = JSON.stringify(data)
-    cy.writeFile(fullPath, jsonData)
+  const filename = createFilePath()
+  const fullPath = `cypress/downloads/${filename}`
+  const jsonData = JSON.stringify(data)
+  cy.writeFile(fullPath, jsonData)
 })
 
 

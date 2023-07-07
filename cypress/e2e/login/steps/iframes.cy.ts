@@ -9,7 +9,7 @@ Given("I visit tutorialpoint iframes page", () => {
 });
 
 When("I interact with the About us link", () => {
-    cy.get("iframe")
+  cy.get("iframe")
     .its("0.contentDocument")
     .its('body')
     .should("be.visible")
@@ -26,35 +26,35 @@ When("I interact with the About us link", () => {
 });
 
 Then("I see the url of the new page", () => {
-    cy.url().then(url => {
-        output['url'] = url
-        cy.task('stdout', output['url'])
-      })
+  cy.url().then(url => {
+    output['url'] = url
+    cy.task('stdout', output['url'])
+  })
 });
 
 Then("I see a list of all URLs on the page", () => {
-    cy.get('a').filter("a[href^='http']").then($els => {
-        output['urls'] = Array.from($els, el => el.href)
-        cy.task('stdout', output['urls'])
+  cy.get('a').filter("a[href^='http']").then($els => {
+    output['urls'] = Array.from($els, el => el.href)
+    cy.task('stdout', output['urls'])
 
-      })
+  })
 });
 
 Then("I see a list of all buttons on the page", () => {
-    cy.get('.btn').then($els => {
-        output['buttons'] = Array.from($els, el => el.innerText)
-        cy.task('stdout', output['buttons'])
-      })
+  cy.get('.btn').then($els => {
+    output['buttons'] = Array.from($els, el => el.innerText)
+    cy.task('stdout', output['buttons'])
+  })
 });
 
 Then("I see a list of all text inputs fields on the page", () => {
-    cy.get('input').then($els => {
-        output['textInputs'] = Array.from($els, el => el)
-        cy.task('stdout', output['textInputs'])
-      })
+  cy.get('input').then($els => {
+    output['textInputs'] = Array.from($els, el => el)
+    cy.task('stdout', output['textInputs'])
+  })
 });
 
 Then("I see a file saved with all the extracted data", () => {
-    cy.saveDataAsJson(output)
+  cy.saveDataAsJson(output)
 })
 
