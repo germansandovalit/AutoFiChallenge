@@ -34,6 +34,7 @@ Then('I see the url of the new page', () => {
 
 Then('I see a list of all URLs on the page', () => {
   cy.get('a').filter("a[href^='http']").then($els => {
+    //@ts-expect-error
     output['urls'] = Array.from($els, el => el.href)
     cy.task('stdout', output['urls'])
 

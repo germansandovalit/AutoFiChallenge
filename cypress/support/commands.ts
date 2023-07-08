@@ -37,9 +37,6 @@
 // }
 
 declare namespace Cypress {
-  interface Node extends HTMLElement {
-    href: string
-  }
   interface Chainable<Subject = any> {
     visitAndSkipRequests(path: string): Chainable<any>
     saveDataAsJson(data: any): Chainable<any>
