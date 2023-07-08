@@ -3,7 +3,6 @@
     "body": {
       "flag": 0,
       "message": "OTP validation is successful"
-    },
-    "delay": 2000
+    }
   }
   

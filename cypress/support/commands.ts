@@ -48,7 +48,7 @@ Cypress.on('uncaught:exception', (err, runnable) => {
 })
 
 Cypress.Commands.add('visitAndSkipRequests', (path: string) => {
-  cy.intercept('**', { statusCode: 226 })
+  cy.intercept('**', {})
   cy.intercept(`${Cypress.config('baseUrl')}/**`, (req) => {
     req.continue()
   })
